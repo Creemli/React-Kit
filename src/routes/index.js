@@ -7,14 +7,20 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import CoreLayout from 'layouts/CoreLayout';
 import Test from 'views/Test';
-import Hello from 'views/Hello';
+import Hello from 'bundle?lazy!views/Hello';
 
-// TODO 暂时无法使用
+// lazy load
 function lazyLoadComponent(lazyModule) {
   return (location, cb) => {
-    lazyModule(module => cb(null, module))
+    lazyModule(module => cb(null, module.default));
   }
 }
+
+// const loadContainerAsync = bundle => (location, cb) => {
+//   bundle(component => {
+//     cb(null, component)
+//   })
+// }
 
 
 const cusProps = {
@@ -39,7 +45,6 @@ const cusProps = {
 export default () => (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={Test} />
-    <Route path='test' getComponent={lazyLoadComponent(Test)} component={Test} />
-    <Route path='hello' getComponent={lazyLoadComponent(Hello)} component={Hello} />
+    <Route path='/hello' getComponent={lazyLoadComponent(Hello)} title="Nothing" />
   </Route>
 )

@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 @connect((state) => ({
   data: state.data
 }), () => {
-
+  return {};
 })
 
 class Test extends Component {

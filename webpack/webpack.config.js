@@ -24,7 +24,7 @@ export default {
     }, {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'babel',
+      loader: ['react-hot', 'babel'],
     }, {
       test: /\.(jpe?g|gif|png|ico|svg)$/,
       loader: 'url?limit=8192&name=build/[name].[hash:4].[ext]'
