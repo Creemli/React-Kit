@@ -84,4 +84,4 @@ export default {
   },
   ROOT_PATH,
   APP_PATH
-};
+}

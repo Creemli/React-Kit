@@ -11,18 +11,16 @@ export default class Root extends React.Component {
     history: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired,
     routes: PropTypes.element.isRequired
-  }
-
-  get content() {
-    return (<Router history={this.props.history}>
-      {this.props.routes}
-    </Router>);
-  }
+  };
 
   render() {
     return (
       <Provider store={this.props.store}>
-        <div>{this.content}</div>
+        <div>
+          <Router history={this.props.history}>
+            {this.props.routes}
+          </Router>
+        </div>
       </Provider>
     );
   }
