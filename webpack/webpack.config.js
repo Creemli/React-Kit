@@ -24,7 +24,8 @@ export default {
     }, {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: ['react-hot', 'babel'],
+      // use loaders when it is array. Or it comes error maybe.
+      loaders: ['react-hot', 'babel'],
     }, {
       test: /\.(jpe?g|gif|png|ico|svg)$/,
       loader: 'url?limit=8192&name=build/[name].[hash:4].[ext]'
