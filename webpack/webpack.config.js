@@ -19,13 +19,13 @@ export default {
   },
   module: {
     loaders: [{
-      test: /\.less$/,
+      test: /\.(less|css)$/,
       loader: 'style!css?sourceMap&-minimize!postcss!less'
     }, {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       // use loaders when it is array. Or it comes error maybe.
-      loaders: ['react-hot', 'babel'],
+      loaders: ['react-hot', 'babel']
     }, {
       test: /\.(jpe?g|gif|png|ico|svg)$/,
       loader: 'url?limit=8192&name=build/[name].[hash:4].[ext]'

@@ -56,5 +56,8 @@ app.listen(port, ip.address(), function onStart(err) {
   if (err) {
     console.log(err);
   }
+  var c = require('child_process');
+  var link = 'http://' + ip.address() + ':3000';
+  c.exec('open ' + link);
   console.info('==> 🌎 Listening on  ' + (ip.address() + ':3000').blue);
 });
