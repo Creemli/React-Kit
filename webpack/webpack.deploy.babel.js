@@ -39,7 +39,7 @@ const config = {
     modulesDirectories: [
       'src',
       'node_modules',
-      'src/assets'
+      // 'src/assets'
     ],
     extensions: ['', '.json', '.js', '.png']
   },
@@ -47,7 +47,7 @@ const config = {
     loaders: [{
       test: /\.less$/,
       loader: ExtractTextPlugin.extract(
-        'css?-minimize!' + 'autoprefixer-loader!' + 'less'
+        'css?-minimize!autoprefixer-loader!less'
       )
     }, {
       test: /\.(js|jsx)?$/,
