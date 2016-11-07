@@ -42,14 +42,13 @@ export function getDetail(id) {
       dispatch(getProductDetailSuccess(res));
     }, (err) => {
       dispatch(getProductDetailError(err));
-    })
+    });
   };
 }
 
 
 //reducer
 export default function productDetail(state = originState, action) {
-console.log(action, '-------');
   return {...state, data: action.res || {}};
 }
 

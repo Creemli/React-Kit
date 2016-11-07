@@ -6,7 +6,7 @@
 import Mock from 'mock';
 
 export function ApiMock(action, params, opt) {
-  let resData = Mock[action];
+  const resData = Mock[action];
   if (resData.responseCode === '00000') {
     return Promise.resolve(resData.responseData);
   } else {

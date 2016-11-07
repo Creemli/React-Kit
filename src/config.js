@@ -50,6 +50,6 @@ export default {
 
   timeOut: 60000,
 
-  RsaKey: ''
+  RsaKey: '',
 };
 

@@ -9,35 +9,37 @@ export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
 // action creators
-export function requestPosts (apiType) {
+export function requestPosts(apiType) {
   return {
     type: REQUEST_POSTS,
-    apiType: apiType
-  }
+    apiType,
+  };
 }
-export function receivePosts (apiType, json) {
+export function receivePosts(apiType, json) {
   return {
     type: RECEIVE_POSTS,
-    apiType: apiType,
-    res: json
-  }
+    apiType,
+    res: json,
+  };
 }
 
-export const RECEIVE_ERR = 'RECEIVE_ERR'
-export function receiveErr (apiType, errMsg) {
+export const RECEIVE_ERR = 'RECEIVE_ERR';
+
+export function receiveErr(apiType, errMsg) {
   return {
     type: RECEIVE_ERR,
-    apiType: apiType,
-    errMsg: errMsg
-  }
+    apiType,
+    errMsg,
+  };
 }
 
-export const CLEAR_ERR = 'CLEAR_ERR'
-export function clearErr (apiType) {
+export const CLEAR_ERR = 'CLEAR_ERR';
+
+export function clearErr(apiType) {
   return {
     type: CLEAR_ERR,
-    apiType: apiType
-  }
+    apiType,
+  };
 }
 
 export const CLEAR_POSTS = 'CLEAR_POSTS'
@@ -57,7 +59,7 @@ export function clearFetching (apiType) {
 }
 
 // reducer
-export default function asyncRequest (state = {}, action) {
+export default function asyncRequest(state = {}, action) {
   switch (action.type) {
     case RECEIVE_POSTS:
       return Object.assign({}, state, {[action.apiType]: {

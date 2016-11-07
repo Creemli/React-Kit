@@ -21,11 +21,32 @@
     "__BASENAME__" : false
   },
   "rules": {
-    "semi" : [1, "always"],
-    "max-len": [2, 120, 2],
-    "import/no-unresolved": 1,
-    "jsx-quotes": 0,
-    "no-underscore-dangle": 0,
-    "comma-dangle":[1, "never"]
+    "indent": 0, //缩进
+    "one-var": 0, //是否定义在一行
+    "react/prop-types": 2, //是否指定proptypes
+    "no-use-before-define": 1, //是否可以提前使用
+    "react/jsx-no-bind": 2,
+    "max-len": 0,
+    "object-curly-spacing": 1, //object里面的空格
+    "no-unused-expressions": 0,  //a && fn()
+    "camelcase": 1, //驼峰命名
+    "react/sort-comp": 0, //方法排序
+    "react/prefer-stateless-function": 0,
+    "strict": 1,          //严格模式
+    "no-nested-ternary": 1,   //嵌套的三目运算
+    "react/jsx-indent-props": [1, 4], // jsx 缩进,
+    "react/jsx-indent": [1, 4], // jsx 缩进,
+    "no-underscore-dangle": [2, { "allowAfterThis": true }],
+    "arrow-body-style": [2, "as-needed"],
+    "no-console": 0,
+    "import/no-unresolved": 0,
+    "no-param-reassign": [2, { "props": false }],
+//    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    // 不检查没有注册的依赖, 如yzt-react-base
+    "import/no-extraneous-dependencies": 0,
+    "no-mixed-operators": 0,
+     // 大写字母开头是否必须new
+    "new-cap": 0,
+    "no-else-return": 1
   }
 }

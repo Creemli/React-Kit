@@ -7,12 +7,8 @@ import React, { PropTypes, Component } from 'react';
 
 class CoreLayout extends Component {
   static propTypes = {
-    children: PropTypes.element
+    children: PropTypes.element,
   };
-
-  componentWillReceiveProps() {
-    console.log('receive props');
-  }
 
   render() {
     return (

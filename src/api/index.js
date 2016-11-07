@@ -11,7 +11,7 @@ import ApiList from './ApiList';
 export function getProductDetail(productId, productCode) {
   return Api(ApiList.PRODUCT_DETAIL, {
     productId,
-    productCode
+    productCode,
   });
 }
 

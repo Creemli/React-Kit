@@ -34,7 +34,7 @@ export default {
       loader: 'url?name=fonts/[name].[hash:4].[ext]'
     }, {
       test: /\.json$/,
-      loader: 'json'
+      loader: 'json',
     }],
     //preLoaders: [{
     //  test: /\.(js|jsx)$/,
@@ -83,5 +83,5 @@ export default {
     configFile: `${ROOT_PATH}/.eslintrc`
   },
   ROOT_PATH,
-  APP_PATH
+  APP_PATH,
 }
