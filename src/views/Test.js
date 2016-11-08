@@ -8,6 +8,8 @@ import React, {
   PropTypes,
 } from 'react';
 import { connect } from 'react-redux';
+import 'styles/test.less';
+import 'styles/core.css';
 
 @connect((state) => ({
   data: state.data
@@ -25,7 +27,9 @@ class Test extends Component {
   }
 
   render() {
-    return (<div onTouchTap={::this.goTo}>Hello World!</div>);
+    return (<div className="test" onTouchTap={::this.goTo}>Hello World!
+      <div className="styleCore">测试</div>
+    </div>);
   }
 
   componentDidMount() {

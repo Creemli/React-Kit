@@ -20,7 +20,7 @@ export default {
   module: {
     loaders: [{
       test: /\.(less|css)$/,
-      loader: 'style!css?sourceMap&-minimize!postcss!less'
+      loader: 'style!css?sourceMap&-minimize!less'
     }, {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,

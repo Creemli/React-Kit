@@ -52,11 +52,13 @@
     "babel-runtime": "^6.9.2",
     "bundle-loader": "^0.5.4",
     "chart.js": "^2.1.6",
-    "css-loader": "^0.14.1",
+    "css-loader": "^0.14.5",
     "extract-text-webpack-plugin": "^1.0.1",
     "history": "^3.0.0",
     "img": "^3.0.3",
     "json-loader": "^0.5.4",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "lodash": "^4.13.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
@@ -69,6 +71,6 @@
     "redux-thunk": "^2.1.0",
     "reqwest": "^2.0.5",
     "stats-webpack-plugin": "^0.3.1",
-    "style-loader": "^0.13.0"
+    "style-loader": "^0.13.1"
   }
 }
