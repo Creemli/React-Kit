@@ -121,9 +121,9 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ],
-  postcss: [
-    require('autoprefixer')
-  ]
+  // postcss: [
+  //   require('autoprefixer')
+  // ]
 };
 
 export default config;
