@@ -23,7 +23,7 @@ const config = {
       'react-redux',
       'react-router-redux',
       'redux',
-      'lodash/core',
+      // 'lodash/core',
       'reqwest',
       //'components',
     ]
