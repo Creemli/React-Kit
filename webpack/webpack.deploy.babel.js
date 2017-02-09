@@ -13,6 +13,12 @@ const ROOT_PATH = path.resolve(__dirname, '..');
 const APP_PATH = path.resolve(ROOT_PATH, 'src');
 const node_modules_dir = path.resolve(ROOT_PATH, 'node_modules');
 
+// TODO 设置路径
+const src = {
+  test: 'test',
+  production: 'production'
+};
+
 const config = {
   cache: true,
   entry: {
@@ -33,7 +39,7 @@ const config = {
     filename: 'app.js',
     chunkFilename: 'chunk.[id].[hash:4].js',
     //cdn host
-    //publicPath: 'http://wap-stg.pingan.com.cn:8010/app_js/c3/chaoshi/neon/'
+    publicPath: src[process.env.DEV_ENV],
   },
   resolve: {
     modulesDirectories: [

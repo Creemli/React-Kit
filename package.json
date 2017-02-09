@@ -6,7 +6,8 @@
   "scripts": {
     "start": "babel-node ./webpack/server",
     "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build",
-    "deploy": "rm -rf dist && NODE_ENV=production webpack --config ./webpack/webpack.deploy.babel.js --progress --profile --colors",
+    "deploy": "rm -rf dist && NODE_ENV=production DEV_ENV= webpack --config ./webpack/webpack.deploy.babel.js --progress --profile --colors",
+    "testEnv": "rm -rf dist && NODE_ENV=production DEV_ENV=production webpack --config ./webpack/webpack.deploy.babel.js --progress --profile --colors",
     "test": "npm run lint"
   },
   "author": "creem",
