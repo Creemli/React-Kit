@@ -53,7 +53,7 @@ const config = {
     loaders: [{
       test: /\.less$/,
       loader: ExtractTextPlugin.extract(
-        'css?-minimize!autoprefixer-loader!less'
+        'css?-minimize!less'
       )
     }, {
       test: /\.(js|jsx)?$/,
@@ -64,10 +64,10 @@ const config = {
       loader: 'json'
     }, {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style', 'css!postcss')
+      loader: ExtractTextPlugin.extract('style', 'css')
     }, {
       test: /\.(jp?g|gif|png|woff|ico)$/,
-      loaders: ['url-loader?limit=8192&name=[name].[hash:4].[ext]', 'img?{bypassOnDebug: true, progressive:true, optimizationLevel: 3, pngquant:{quality: "65-80"}}']
+      loaders: ['url-loader?limit=8192&name=[name].[hash:4].[ext]']
     }]
   },
   imagemin: {
