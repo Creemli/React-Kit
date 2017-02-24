@@ -10,6 +10,19 @@ const GET_PRODUCT_DETAIL_BEGIN = 'GET_PRODUCT_DETAIL_BEGIN';
 const GET_PRODUCT_DETAIL_SUCCESS = 'GET_PRODUCT_DETAIL_SUCCESS';
 const GET_PRODUCT_DETAIL_ERROR = 'GET_PRODUCT_DETAIL_ERROR';
 
+
+// hook 通用方法定义
+const COMMON_HANDLERS = {
+  login() {
+    // got to login
+  },
+  register() {
+    // go to register
+  }
+}
+
+
+
 const originState = {
   data: {}
 };
@@ -35,13 +48,27 @@ function getProductDetailError() {
 }
 
 
+
 export function getDetail(id) {
   return (dispatch, getState) => {
+
     dispatch(getProductDetailBegin());
-    return getProductDetail(id).then((res) => {
-      dispatch(getProductDetailSuccess(res));
+
+    const handlers = {
+      ...COMMON_HANDLERS,
+      success: (res)=> dispatch(getProductDetailSuccess(res)),
+      fail: (err)=> dispatch(getProductDetailError(err))
+
+      // 自定义的针对于回调的处理方法, 这个key会用在ApiList.js 中的配置
+      customerHandler: () => {
+        //dosomething
+      }
+    };
+
+    return getProductDetail(id).then(({res, type}) => {
+       handlers[type] && handlers[type](res);
     }, (err) => {
-      dispatch(getProductDetailError(err));
+      handlers['fail'] && handlers['fail'](err);
     });
   };
 }

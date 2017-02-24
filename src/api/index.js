@@ -4,7 +4,15 @@
  */
 
 import Api from './lib/ApiBase';
-import ApiList from './ApiList';
+import ApiList, { handleCallback } from './ApiList';
+
+
+const hookCallback = (res) => {
+  return (name) => ({res, type: handleCallback(name, res.responseCode)})
+};
+
+
+
 
 // ProductDetailInfo
 
@@ -12,6 +20,6 @@ export function getProductDetail(productId, productCode) {
   return Api(ApiList.PRODUCT_DETAIL, {
     productId,
     productCode,
-  });
+  })
+  .then((res) => hookCallback(res)(ApiList.PRODUCT_DETAIL));
 }
-
