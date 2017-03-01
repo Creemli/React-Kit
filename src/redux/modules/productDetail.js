@@ -57,7 +57,7 @@ export function getDetail(id) {
     const handlers = {
       ...COMMON_HANDLERS,
       success: (res)=> dispatch(getProductDetailSuccess(res)),
-      fail: (err)=> dispatch(getProductDetailError(err))
+      fail: (err)=> dispatch(getProductDetailError(err)),
 
       // 自定义的针对于回调的处理方法, 这个key会用在ApiList.js 中的配置
       customerHandler: () => {
