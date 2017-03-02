@@ -4,7 +4,7 @@
  *  如果action为 http|(https) 开头的,则表示使用其作为完整url
  */
 
-import Config from 'config';
+import Config from '../../config';
 import { ApiJsonp } from './ApiLive';
 import { ApiMock } from './ApiMock';
 

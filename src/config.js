@@ -32,7 +32,7 @@ export default {
   },
 
   getEnvByHref() {
-    const link = location.href;
+    const link = window.location && window.location.href;
     let env = '';
     if (/localhost/ig.test(link) || /(\d+).(\d+).(\d+).(\d+)/.test(link)) {
       env = 'mock';

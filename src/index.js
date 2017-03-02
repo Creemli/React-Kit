@@ -9,7 +9,7 @@ import Root from 'containers/Root'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { browserHistory, hashHistory } from 'react-router'
 
-import configureStore from 'redux/configureStore'
+import configureStore from './redux/configureStore'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 

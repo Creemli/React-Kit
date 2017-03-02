@@ -3,7 +3,7 @@
  * @description
  */
 
-import { getProductDetail } from 'api';
+import { getProductDetail } from '../../api';
 
 
 const GET_PRODUCT_DETAIL_BEGIN = 'GET_PRODUCT_DETAIL_BEGIN';
@@ -34,7 +34,7 @@ function getProductDetailBegin() {
   }
 }
 
-function getProductDetailSuccess(res) {
+export function getProductDetailSuccess(res) {
   return {
     type: GET_PRODUCT_DETAIL_BEGIN,
     res
@@ -76,7 +76,7 @@ export function getDetail(id) {
 
 //reducer
 export default function productDetail(state = originState, action) {
-  return {...state, data: action.res || {}};
+  return {...state, data: action.res || ''};
 }
 
 

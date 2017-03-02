@@ -3,7 +3,7 @@
  * @description     模拟数据
  */
 
-import Mock from 'mock';
+import Mock from '../../mock';
 
 export function ApiMock(action, params, opt) {
   const resData = Mock[action];
