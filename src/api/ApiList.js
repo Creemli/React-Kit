@@ -33,7 +33,7 @@ const ApiList = {
 
 //  默认配置, 可以针对不同的项目进行修改
 const defaultSettings = {
-  '0000': 'success',
+  '00000': 'success',
   // 5001, 5002 handle
   '7004': 'login',
   '1006': 'login',

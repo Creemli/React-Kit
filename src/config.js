@@ -5,7 +5,7 @@
 const RsaKey = '';
 
 const Domains = {
-  mock: '/',
+  mock: 'http://localhost:3000/',
   test: 'http://pa18-wapmall-dmzstg1.pingan.com.cn',
   uat: 'http://',
   prePro: 'http://',
@@ -17,7 +17,7 @@ export default {
   // mock/test/uat/prePro/pro
   // 设计的初衷是为了切换环境, 默认的domain会自动根据location判断。
   // 如果需要强制指定,如在开发环境访问测试环境数据,env 为test即可
-  env: '',
+  env: 'mock',
 
   get baseDomain() {
     return Domains[this.getEnv()];

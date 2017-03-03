@@ -5,8 +5,7 @@
  */
 
 import Config from '../../config';
-import { ApiJsonp } from './ApiLive';
-import { ApiMock } from './ApiMock';
+import { ApiJsonp, ApiGet, ApiPost } from './ApiLive';
 
 const Domain = Config.baseDomain;
 const timeOut = Config.timeOut;
@@ -19,7 +18,7 @@ export default (action, params, opt = {}) => {
 
   const options = {...opt, timeout: opt.timeout || timeOut};
 
-  return Config.isMock() ?
-  ApiMock(action, params, options) :
-  ApiJsonp(url, params, options).then((res) => res.json());
+  return Config.isMock() ? 
+    ApiGet(action, params, options) :
+    ApiJsonp(url, params, options).then((res) => res.json());
 };
