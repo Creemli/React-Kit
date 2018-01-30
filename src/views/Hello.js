@@ -3,7 +3,8 @@
  * @description
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getDetail } from '../redux/modules/productDetail';
@@ -18,7 +19,7 @@ class Hello extends Component {
   }
 
   render() {
-    return (<div>Hello routerReducer!!{this.props.productDetail.data}</div>);
+    return (<div>Hello routerReducer!!{JSON.stringify(this.props.productDetail.data)}</div>);
   }
 }
 

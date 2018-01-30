@@ -3,8 +3,8 @@
  * @description
  */
 
-import React, { PropTypes, Component } from 'react';
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 class CoreLayout extends Component {
   static propTypes = {
     children: PropTypes.element,

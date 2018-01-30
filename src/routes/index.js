@@ -4,10 +4,10 @@
  */
 
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
-import CoreLayout from 'layouts/CoreLayout';
+import { Route } from 'react-router-dom';
+import CoreLayout from '../layouts/CoreLayout';
 import Test from 'views/Test';
-import Hello from 'bundle?lazy!views/Hello';
+import Hello from 'bundle-loader?lazy!views/Hello';
 
 // lazy load
 function lazyLoadComponent(lazyModule) {
@@ -42,9 +42,24 @@ const cusProps = {
   }
 };
 
-export default () => (
-  <Route path='/' component={CoreLayout}>
-    <IndexRoute component={Test} />
-    <Route path='/hello' getComponent={lazyLoadComponent(Hello)} title="Nothing" />
-  </Route>
-)
+// export default () => (
+//   <CoreLayout>
+//     <Route path='/hello' getComponent={lazyLoadComponent(Hello)} title="Nothing" />
+//   </CoreLayout>
+   
+// )
+
+export default [
+  { component: CoreLayout,
+    routes: [
+      { path: '/',
+        exact: true,
+        component: Test
+      },
+      {
+        path: '/hello',
+        getComponent: lazyLoadComponent(Hello),
+      }
+    ]
+  }
+];

@@ -4,10 +4,7 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Root from 'containers/Root'
-
-import { syncHistoryWithStore } from 'react-router-redux'
-import { browserHistory, hashHistory } from 'react-router'
+import Root from './containers/Root'
 
 import configureStore from './redux/configureStore'
 
@@ -16,28 +13,12 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import routes from 'routes/index';
 
 // inject tap event system
+// iOS 9.3 以上 可以移除此插件
 injectTapEventPlugin();
 
 const store = configureStore();
 
-// custom histories
-
-/*
-const cusHistory = useRouterHistory(createHistory)({
-  queryKey: false,
-})
-*/
-
-// 暂时使用hash，不需要服务端做修改。
-const history = syncHistoryWithStore(hashHistory, store);
-
-/*
-history.listen(a => {
-  console.log(a);
-});
-*/
-
 ReactDOM.render(
-  <Root store={store} history={history} routes={routes()} />,
+  <Root store={store} routes={routes} />,
   document.querySelector('#root')
 )

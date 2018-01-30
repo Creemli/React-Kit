@@ -6,7 +6,6 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from './webpack.config.js';
 import ip from 'ip';
 import fs from 'fs';
-import colors from 'colors';
 
 const { ROOT_PATH } = config;
 
@@ -36,7 +35,7 @@ if (isDeveloping) {
     var ma = req.url.match(/(.*)\/(.*)(.json|.do)/);
     var realPath;
     if (ma && ma[2]) {
-      realPath = path.join(ROOT_PATH, 'src/mock/' + ma[2] + '.json');
+      realPath = path.join(ROOT_PATH, 'mock/' + ma[2] + '.json');
     }
     console.log(realPath);
 
