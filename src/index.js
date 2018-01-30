@@ -19,6 +19,6 @@ injectTapEventPlugin();
 const store = configureStore();
 
 ReactDOM.render(
-  <Root store={store} routes={routes} />,
+  <Root store={store} routes={routes()} />,
   document.querySelector('#root')
 )

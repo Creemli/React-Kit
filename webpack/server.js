@@ -3,11 +3,9 @@ import express from 'express';
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import config from './webpack.config.js';
+import config, { ROOT_PATH } from './webpack.config.js';
 import ip from 'ip';
 import fs from 'fs';
-
-const { ROOT_PATH } = config;
 
 
 const isDeveloping = process.env.NODE_ENV !== 'production';

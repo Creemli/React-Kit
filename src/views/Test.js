@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import 'styles/test.less';
 import 'styles/core.css';
+import {withRouter} from "react-router-dom";
 
 @connect((state) => ({
   data: state.data
@@ -18,12 +19,8 @@ import 'styles/core.css';
 })
 
 class Test extends Component {
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  };
-
   goTo() {
-    this.context.router.push('hello')
+    this.props.history.push('hello')
   }
 
   render() {
@@ -36,6 +33,6 @@ class Test extends Component {
   }
 }
 
-export default Test;
+export default withRouter(Test);
 
 

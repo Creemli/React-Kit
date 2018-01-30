@@ -13,7 +13,9 @@ class CoreLayout extends Component {
   render() {
     return (
       <div className="page-container">
-        <div className="view-container">{this.props.children}</div>
+        <div className="view-container">
+        {this.props.children}
+        </div>
       </div>
     );
   }

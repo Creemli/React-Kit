@@ -4,10 +4,10 @@
  */
 
 import React from 'react';
-import { Route } from 'react-router-dom';
-import CoreLayout from '../layouts/CoreLayout';
+// import { Route } from 'react-router-dom';
+import {Route, Switch } from 'react-router';
 import Test from 'views/Test';
-import Hello from 'bundle-loader?lazy!views/Hello';
+import Hello from 'views/Hello';
 
 // lazy load
 function lazyLoadComponent(lazyModule) {
@@ -42,24 +42,25 @@ const cusProps = {
   }
 };
 
-// export default () => (
-//   <CoreLayout>
-//     <Route path='/hello' getComponent={lazyLoadComponent(Hello)} title="Nothing" />
-//   </CoreLayout>
+export default () => (
+      <Switch>
+        <Route path='/' exact component={Test} title="Test" />
+        <Route path='/hello' component={Hello} title="Nothing" />
+      </Switch>
    
-// )
+)
 
-export default [
-  { component: CoreLayout,
-    routes: [
-      { path: '/',
-        exact: true,
-        component: Test
-      },
-      {
-        path: '/hello',
-        getComponent: lazyLoadComponent(Hello),
-      }
-    ]
-  }
-];
+// export default [
+//   { component: CoreLayout,
+//     routes: [
+//       { path: '/',
+//         // exact: true,
+//         component: Test
+//       },
+//       {
+//         path: '/hello',
+//         getComponent: lazyLoadComponent(Hello),
+//       }
+//     ]
+//   }
+// ];

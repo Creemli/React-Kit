@@ -20,7 +20,6 @@ const src = {
 };
 
 const config = {
-  cache: true,
   entry: {
     app: path.resolve(APP_PATH, 'index.js'),
     shared: [
@@ -36,63 +35,66 @@ const config = {
   },
   output: {
     path: path.join(ROOT_PATH, '/dist/'),
-    filename: 'app.js',
+    filename: '[name].js',
     chunkFilename: 'chunk.[id].[hash:4].js',
     //cdn host
     publicPath: src[process.env.DEV_ENV],
   },
   resolve: {
-    modulesDirectories: [
+    modules: [
       'src',
       'node_modules',
-      // 'src/assets'
     ],
-    extensions: ['', '.json', '.js', '.png']
   },
   module: {
-    loaders: [{
-      test: /\.less$/,
-      loader: ExtractTextPlugin.extract(
-        'css?-minimize!less'
-      )
-    }, {
-      test: /\.(js|jsx)?$/,
+    rules: [{
+      test: /\.(js|jsx)/,
       exclude: /node_modules/,
-      loader: 'babel',
-    }, {
-      test: /\.json?$/,
-      loader: 'json'
-    }, {
+      use: [{loader: 'babel-loader'}]
+    },
+    {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style', 'css')
-    }, {
-      test: /\.(jp?g|gif|png|woff|ico)$/,
-      loaders: ['url-loader?limit=8192&name=[name].[hash:4].[ext]']
-    }]
-  },
-  imagemin: {
-    gifsicle: {
-      interlaced: false
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: ['css-loader', 'postcss-loader']
+      })
     },
-    jpegtran: {
-      progressive: true,
-      arithmetic: false
-    },
-    optipng: {
-      optimizationLevel: 5
-    },
-    pngquant: {
-      floyd: 0.5,
-      speed: 2
-    },
-    svgo: {
-      plugins: [{
-        removeTitle: true
-      }, {
-        convertPathData: false
+    {
+      test: /\.(png|jpg|jpeg|webp|gif|svg)/,
+      use: [{
+        loader: 'url-loader',
+        options: {
+          'limit': 500,
+          outputPath: 'images/'
+        }
       }]
-    }
+    },
+     // less 编译
+     {
+      test: /\.less$/,
+      // 不分离编译的css文件
+      // use:['style-loader',"postcss-loader",'css-loader','less-loader']
+      // 分离css文件
+      use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ['css-loader',"postcss-loader", 'less-loader']
+      })
   },
+  // scss 编译
+  {
+      test:/\.scss$/,
+      // 编译scss 不分离文件
+      // use:['style-loader',"postcss-loader",'css-loader','sass-loader']
+      // 分离css文件
+      use:ExtractTextPlugin.extract({
+          fallback:'style-loader',
+          use:['css-loader',"postcss-loader",'sass-loader']
+      })
+  },
+  
+  ]
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       title: '项目名',
@@ -105,8 +107,7 @@ const config = {
       modules: true
     }),
     new ExtractTextPlugin('app.css'),
-    new webpack.optimize.CommonsChunkPlugin('shared', 'shared.js'),
-    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.CommonsChunkPlugin('shared'),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: false,
       cache: false,
@@ -118,7 +119,7 @@ const config = {
         comments: false
       }
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    // new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin({
       minSizeReduce: 1.5,
       moveToParents: true

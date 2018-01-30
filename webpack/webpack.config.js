@@ -90,3 +90,8 @@ export default {
   ],
   devtool: 'source-map',
 };
+
+export {
+  ROOT_PATH,
+  APP_PATH,
+}

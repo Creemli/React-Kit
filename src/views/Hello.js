@@ -19,7 +19,9 @@ class Hello extends Component {
   }
 
   render() {
-    return (<div>Hello routerReducer!!{JSON.stringify(this.props.productDetail.data)}</div>);
+    return (<div>Hello routerReducer!!
+      {JSON.stringify(this.props.productDetail.data)}
+      </div>);
   }
 }
 
